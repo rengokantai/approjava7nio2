@@ -27,6 +27,8 @@ public class SymbolicLink {
                 System.out.println("UnsupportOp!");
             }
         }
+        //Checking a symbolic link
+        System.out.println(Files.isSymbolicLink(link));
 
 
     }
