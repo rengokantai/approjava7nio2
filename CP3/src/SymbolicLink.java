@@ -16,7 +16,7 @@ public class SymbolicLink {
     ln -s targetfolder newlinkfolder
      */
     public static void main(String[] args) {
-        Path link = FileSystems.getDefault().getPath("user.name");
+        Path link = FileSystems.getDefault().getPath("D:/intro/new");
         Path target = FileSystems.getDefault().getPath("C:/Users");
 
         try {
@@ -27,5 +27,7 @@ public class SymbolicLink {
                 System.out.println("UnsupportOp!");
             }
         }
+
+
     }
 }
