@@ -20,7 +20,9 @@ public class SymbolicLink {
         Path target = FileSystems.getDefault().getPath("C:/Users");
 
         try {
-            Files.createSymbolicLink(link,target);
+            if(Files.notExists(link)) {
+                Files.createSymbolicLink(link, target);
+            }
         } catch (IOException|UnsupportedOperationException e) {
             e.printStackTrace();
             if(e instanceof UnsupportedOperationException){
@@ -29,6 +31,23 @@ public class SymbolicLink {
         }
         //Checking a symbolic link
         System.out.println(Files.isSymbolicLink(link));
+
+        //Locating the target of a link
+
+        try {
+            Path tar = Files.readSymbolicLink(link);
+            System.out.println(tar);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        //Checking link and target point to the same file
+        try {
+            System.out.println(Files.isSameFile(link,target));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }
